@@ -1,0 +1,62 @@
+<MyContacts>:
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            ortientation: "horizontal"
+            size_hint: 1, .2
+            Image: 
+                source: "logo.jpg"
+                pos_hint: {"x": 0}
+                size_hint: .2, 1
+            Label:
+                text: "Contacts pages"
+                color: .7, .4, .4,
+
+        RoundedButton: 
+            text: "Add a contact"
+            size_hint: .5, 0.3
+            pos_hint: {"center_x":0.5}
+
+        BoxLayout:
+            orientation: "vertical"
+            id: contact_list
+
+            padding: 50
+            spacing: 20
+
+
+            RoundedButton:
+                id: emily_button 
+                text: "Emily"
+                color: .4, .4, .4,
+                size_hint: 1, 0.3
+                pos_hint: {"center_x": .5}
+
+            RoundedButton: 
+                text: "Jess"
+                color: .4, .4, .4,
+                size_hint: 1, .3
+                pos_hint: {"center_x": .5}
+
+            RoundedButton: 
+                text: "Mika"
+                color: .4, .4, .4,
+                size_hint: 1,.3
+                pos_hint: {"center_x": .5}
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, .1
+            Button:
+                text: "Back main"
+                on_press:
+                    root.manager.current = "MainPage"
+                    root.manager.transition.direction = "right"
+            RoundedButton:
+                text: "Add friend"
+                color: .1, .4, .4,
+                on_press: 
+                    for i in range(1):\
+                    print("Hello")
+                    emily_button.text = "Changé"

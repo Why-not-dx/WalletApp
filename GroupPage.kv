@@ -1,0 +1,18 @@
+<GroupPage>:
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            ortientation: "horizontal"
+            size_hint: 1, .2
+            Image: 
+                source: "logo.jpg"
+                pos_hint: {"x": 0}
+            Label:
+                text: "Groups"
+                color: .7, .4, .4,
+
+        Button:
+            text: "Back"
+            on_press:
+                root.manager.current = "MainPage"
+                root.manager.transition.direction = "left"

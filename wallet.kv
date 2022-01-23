@@ -1,0 +1,76 @@
+MainPage:
+
+
+<RoundedButton@Button>:
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (.7, .4, .4, 1) if self.state == "normal"  else (0,.7,.7,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [58,]
+
+<RoundedLabel@Label>:
+    background_color: 0, 0, 0, 0
+    font_size: 14
+    font_name: 
+    canvas.before:
+        Color:
+            rgba: (.1,.1,.1,.5)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [58,]
+
+<MainPage>:
+    BoxLayout:
+        orientation: "vertical"
+        padding : 50
+        spacing: 30
+
+        BoxLayout:
+            ortientation: "horizontal"
+            size_hint: 1, None
+            Image: 
+                source: "logo.jpg"
+                pos_hint: {"x": 0}
+                size_hint: .2, 1
+            Label:
+                text: "MainPage"
+                background_color: (0, 0, 0 , 0)
+                color: .7, .4, .4,
+                size_hint: .2, 1
+        
+        Label:
+            text: ""
+            background_color: (0,0,0,0)
+            size_hint:.1,.2
+
+
+        RoundedButton:
+            text: "Usual contacts"
+            size_int: 1, None
+            on_press:
+                root.manager.current = "MyContacts"
+                root.manager.transition.direction = "left"
+
+        RoundedButton:
+            text: "Go to groups"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5}
+
+            on_press:
+                root.manager.current = "MyGroups"
+                root.manager.transition.direction = "right"
+                self.background_color: (1,1,1,1)
+            on_release:
+                self.background_color: "#00FFCE"
+        
+        Button:
+            text:"Hello world"
+            color: .7, .4, .4,
+            size_hint: 1, 1.2
+
+
