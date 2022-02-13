@@ -1,0 +1,72 @@
+#:set darkBG  (13/255, 12/255, 29/255, 1)
+#:set oxfordBlue  (22/255, 27/255, 51/255, 1)
+#:set purpleNavy  (71/255, 73/255, 115/255, 1)
+#:set violetGrey  (166/255, 156/255, 172/255, 1)
+#:set almondWhite  (241/255, 218/255, 196/255, 1)
+
+#comment afficher toutes les infos sur la page ? 
+#un autre recycleview ? Un grid pour les membres du groupe ? 
+#on va simplifier et dire que l'on ne prend le budget que de notre POV
+
+
+
+<walletUpdate>:
+    walletTitle: walletName
+    walletBalance: summaryWallet
+
+    BoxLayout:
+        orientation:"vertical"
+        spacing: 30
+        padding: 20
+
+        Banner:
+            size_hint: 1, .2
+        
+
+
+        Label:
+            id: walletName
+            text:"DefaultName"
+            size_hint: .5, None
+            pos_hint:{"center_x": .5}
+            font_size: 24
+
+        Label:
+            id: summaryWallet
+            text: "Summary of the wallet : \n anthony spent 50, jessica spent 75. \n anthony paid back 25. \n Balance 0 "
+            size_hint: .8, None
+            pos_hint:{"center_x": .5}
+
+        TextInput:
+            id: newEntry
+            size_hint: .3, None
+            pos_hint: {"center_x": .5}    
+            font_size: 42
+            padding_y: [self.height // 2.0 - (self.line_height // 2.0) * len(self._lines), 0]
+
+        GridLayout:
+            cols: 2
+            spacing: 20
+            padding: 10
+            Button:
+                text:"Add as spending"
+                size_hint: .8, None
+                pos_hint: {"center_x": .5}
+
+            Button:
+                text:"Add as payment"
+                size_hint: .8, None
+                pos_hint: {"center_x": .5}
+    
+            Button:
+                text:"Clear wallet"
+                size_hint: .8, None
+                pos_hint: {"center_x": .5}
+    
+            Button:
+                text:"BACK"
+                size_hint: .5, None 
+                pos_hint: {"x": .5}   
+
+        Footer:
+            size_hint: 1, None
